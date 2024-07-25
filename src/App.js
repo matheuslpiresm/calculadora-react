@@ -2,7 +2,7 @@ import Input from './components/Input';
 import Button from './components/Button';
 
 import { Container, Content, Row } from './styles';
-import { useState, useEffect  } from 'react';
+import { useState, useEffect } from 'react';
 
 
 const App = () => {
@@ -38,7 +38,7 @@ const App = () => {
       setCurrentNumber('0');
       setOperation('-');
     } else {
-      const subtract = Number(firstNumber) -  Number(currentNumber);
+      const subtract = Number(firstNumber) - Number(currentNumber);
       setCurrentNumber(String(subtract));
       setOperation('');
     }
@@ -50,7 +50,7 @@ const App = () => {
       setCurrentNumber('0');
       setOperation('/');
     } else {
-      const division = Number(firstNumber) /  Number(currentNumber);
+      const division = Number(firstNumber) / Number(currentNumber);
       setCurrentNumber(String(division));
       setOperation('');
     }
@@ -62,7 +62,7 @@ const App = () => {
       setCurrentNumber('0');
       setOperation('*');
     } else {
-      const multiplication = Number(firstNumber) *  Number(currentNumber);
+      const multiplication = Number(firstNumber) * Number(currentNumber);
       setCurrentNumber(String(multiplication));
       setOperation('');
     }
@@ -70,23 +70,23 @@ const App = () => {
 
   const handleResults = () => {
     if (firstNumber !== '0' && operation !== '' && currentNumber !== '0') {
-      switch(operation){
+      switch (operation) {
         case '+':
-        handleSumNumbers();
-        break;
+          handleSumNumbers();
+          break;
         case '-':
           handleSubtractNumbers();
-        break;
+          break;
         case '/':
           handleDivisionNumbers();
-        break;
+          break;
         case '*':
           handleMultiplicationNumbers();
-        break;
+          break;
         default:
           break;
       }
-      
+
     }
   }
 
@@ -95,17 +95,17 @@ const App = () => {
       const key = event.key;
 
       if (!isNaN(key)) {
-        handleAddNumber(key); 
+        handleAddNumber(key);
       } else if (key === '/') {
-        handleDivisionNumbers(); 
+        handleDivisionNumbers();
       } else if (key === '+') {
-        handleSumNumbers(); 
+        handleSumNumbers();
       } else if (key === '-') {
-        handleSubtractNumbers(); 
+        handleSubtractNumbers();
       } else if (key === '*') {
-        handleMultiplicationNumbers(); 
+        handleMultiplicationNumbers();
       } else if (key === 'Enter') {
-        handleResults(); 
+        handleResults();
       } else if (key === 'Backspace') {
         handleOnClear();
       }
@@ -126,28 +126,28 @@ const App = () => {
           <Button label="7" onClick={() => handleAddNumber('7')} />
           <Button label="8" onClick={() => handleAddNumber('8')} />
           <Button label="9" onClick={() => handleAddNumber('9')} />
-          <Button label="C" onClick={(handleOnClear)} />
+          <Button label="C" color="orange" onClick={(handleOnClear)} />
         </Row>
 
         <Row>
           <Button label="4" onClick={() => handleAddNumber('4')} />
           <Button label="5" onClick={() => handleAddNumber('5')} />
           <Button label="6" onClick={() => handleAddNumber('6')} />
-          <Button label="÷" onClick={handleDivisionNumbers}/>
+          <Button label="÷" color="blue" onClick={handleDivisionNumbers} />
         </Row>
 
         <Row>
           <Button label="1" onClick={() => handleAddNumber('1')} />
           <Button label="2" onClick={() => handleAddNumber('2')} />
           <Button label="3" onClick={() => handleAddNumber('3')} />
-          <Button label="*" onClick={handleMultiplicationNumbers}/>
+          <Button label="*" color="blue" onClick={handleMultiplicationNumbers} />
         </Row>
 
         <Row>
           <Button label="0" onClick={() => handleAddNumber('0')} />
-          <Button label="-" onClick={handleSubtractNumbers} />
-          <Button label="+" onClick={handleSumNumbers}/>
-          <Button label="=" onClick={handleResults}/>
+          <Button label="-" color="blue" onClick={handleSubtractNumbers} />
+          <Button label="+" color="blue" onClick={handleSumNumbers} />
+          <Button label="=" color="orange" onClick={handleResults} />
         </Row>
 
       </Content>
